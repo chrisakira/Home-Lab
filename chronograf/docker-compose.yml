@@ -1,0 +1,18 @@
+version: "3.3"
+services: 
+  chronograf:
+    image: chronograf:latest
+    ports:
+      - '127.0.0.1:8888:8888'
+    volumes:
+      - chronograf-storage:/var/lib/chronograf 
+    environment:
+      - INFLUXDB_URL=http://influxdb:8086
+      - INFLUXDB_USERNAME=vm2
+      - INFLUXDB_PASSWORD=FEFEfefe@1
+volumes: 
+  chronograf-storage:  
+networks: 
+  default: 
+    external: 
+      name: home-lab 
